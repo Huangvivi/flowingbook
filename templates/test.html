@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {{ super() }}
+    {% if data.age < 18 %}
+{#        {{ data.name }}#}
+        {% with errors = get_flashed_messages(category_filter = ['errors']) %}
+{#        {% set errors = get_flashed_messages(category_filter = ['error']) %}#}
+        {% if errors %}
+            <ul>
+            {% for msg in errors %}
+                <li>{{ msg }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    {% elif data.age == 18 %}
+        {{ data.school | default(data.school) | default('未名')}}
+        {% with messages = get_flashed_messages() %}
+        {{ messages }}
+        {% endwith %}
+    {% else %}
+        {{ data.age }}
+    {% endif %}
+     {{ messages }}
+{% endblock %}
+

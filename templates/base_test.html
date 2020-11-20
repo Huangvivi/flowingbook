@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='3rd/ui/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+<body>
+
+<div class="container">
+   {% for book in books %}
+        <div class="row col-padding">
+            <a href="{{ url_for('views.book_detail', isbn=book.isbn) }}" class="">
+                <div class="col-md-2">
+                    <img class="book-img-small shadow" src="{{ book.image }}">
+                </div>
+                <div class="col-md-7 flex-vertical description-font">
+                    <span class="title">{{ book.title }}</span>
+{#                    <span>{{ [book.author | d(''), book.publisher | d('', true) , '￥' + book.price | d('')] | join(' / ') }}</span>#}
+                    <span>{{book.intro}}</span>
+                    <span class="summary">{{ book.summary | default('', true) }}</span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+    <div class="row">
+        <div class="flex-hor-center">
+            <ul class="pagination" id="pagination"></ul>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

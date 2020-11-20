@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='3rd/ui/remodal.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='3rd/ui/remodal-default-theme.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/book-detail.css')}}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="col-md-1">
+        <a class="btn btn-outline"
+           href="#modal">
+            赠送此书
+        </a>
+    </div>
+ <div class="remodal" data-remodal-id="modal" role="dialog"
+         aria-labelledby="modal1Title" aria-describedby="modal1Desc"
+         data-remodal-options="closeOnOutsideClick: false">
+        <button data-remodal-action="close" class="remodal-close"
+                aria-label="Close"></button>
+        <div>
+            <h5 class="diag-title">
+                您确定拥有这本书吗？</h5>
+            <p id="modal1Desc" class="description-font">
+                如果您不想赠送此书，或者没有这本书，请不要随意发布虚假信息。谢谢你的支持和理解。
+            </p>
+        </div>
+     </div>
+
+
+{#<div class="remodal" data-remodal-id="modal">#}
+{#  <button data-remodal-action="close" class="remodal-close"></button>#}
+{#  <h1>Remodal</h1>#}
+{#  <p>#}
+{#    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.#}
+{#  </p>#}
+{#  <br>#}
+{#  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>#}
+{#  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>#}
+{#</div>#}
+
+</body>
+    <script src="{{ url_for('static', filename='3rd/remodal.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/book-detail.js') }}"></script>
+</html>
